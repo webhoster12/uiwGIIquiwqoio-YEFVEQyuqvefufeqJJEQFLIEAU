@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #575757;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .form-section {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <h1>Education</h1>
+    </section>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personal-info.html">About Me</a>
+        <a href="work.html">Work Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+    </nav>
+
+    <section class="form-section">
+        <h2>Enter Your Education Details</h2>
+        <input type="text" id="degree" placeholder="Your Degree">
+        <input type="text" id="institution" placeholder="Institution Name">
+        <input type="text" id="year" placeholder="Year of Graduation">
+        <button onclick="saveEducation()">Save Education</button>
+    </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Information about the CV creator tool.</p>
+    </section>
+
+    <script>
+        function saveEducation() {
+            const degree = document.getElementById('degree').value;
+            const institution = document.getElementById('institution').value;
+            const year = document.getElementById('year').value;
+
+            localStorage.setItem("degree", degree);
+            localStorage.setItem("institution", institution);
+            localStorage.setItem("year", year);
+
+            alert("Education details saved successfully!");
+        }
+    </script>
+</body>
+</html>

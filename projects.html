@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #575757;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .form-section {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <h1>Projects</h1>
+    </section>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personal-info.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="work.html">Work Experience</a>
+        <a href="skills.html">Skills</a>
+    </nav>
+
+    <section class="form-section">
+        <h2>Enter Your Projects</h2>
+        <input type="text" id="projectName" placeholder="Project Name">
+        <input type="text" id="projectDescription" placeholder="Project Description">
+        <button onclick="saveProjects()">Save Project</button>
+    </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Information about the CV creator tool.</p>
+    </section>
+
+    <script>
+        function saveProjects() {
+            const projectName = document.getElementById('projectName').value;
+            const projectDescription = document.getElementById('projectDescription').value;
+
+            localStorage.setItem("projectName", projectName);
+            localStorage.setItem("projectDescription", projectDescription);
+
+            alert("Project saved successfully!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .header {
+            min-height: 5vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../../Downloads/eduford_img/eduford_img/banner.png);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+        .header h1 {
+            font-size: 62px;
+            margin-bottom: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        nav a:hover {
+            background: violet;
+            transition: 0.3s;
+        }
+        .view-cv-button {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .view-cv-button button {
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .view-cv-button button:hover {
+            background: #218838;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <h1>Welcome to CV Creator</h1>
+    </section>
+    
+    <nav>
+        <a href="about.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="work.html">Work Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+    </nav>
+
+    <!-- Button to view the CV -->
+    <section class="view-cv-button">
+        <button onclick="viewCV()">View My CV</button>
+    </section>
+
+    <script>
+        function viewCV() {
+            const name = localStorage.getItem("name") || "Name not entered";
+            const address = localStorage.getItem("address") || "Address not entered";
+            const phone = localStorage.getItem("phone") || "Phone number not entered";
+            const email = localStorage.getItem("email") || "Email not entered";
+            const education = localStorage.getItem("education") || "Education not entered";
+            const jobTitle = localStorage.getItem("jobTitle") || "Job title not entered";
+            const company = localStorage.getItem("company") || "Company not entered";
+            const duration = localStorage.getItem("duration") || "Duration not entered";
+            const projectName = localStorage.getItem("projectName") || "Project not entered";
+            const projectDescription = localStorage.getItem("projectDescription") || "Project description not entered";
+            const skill = localStorage.getItem("skill") || "Skills not entered";
+
+            const cvContent = `
+                <h2>CV</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <h3>Education</h3>
+                <p>${education}</p>
+                <h3>Work Experience</h3>
+                <p><strong>Job Title:</strong> ${jobTitle}</p>
+                <p><strong>Company:</strong> ${company}</p>
+                <p><strong>Duration:</strong> ${duration}</p>
+                <h3>Projects</h3>
+                <p><strong>Project Name:</strong> ${projectName}</p>
+                <p><strong>Project Description:</strong> ${projectDescription}</p>
+                <h3>Skills</h3>
+                <p>${skill}</p>
+            `;
+
+            const newWindow = window.open("", "CV Preview", "width=600,height=800");
+            newWindow.document.write(`
+                <html>
+                    <head>
+                        <title>CV Preview</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; padding: 20px; }
+                            h2, h3 { color: #007BFF; }
+                            p { line-height: 1.5; margin: 10px 0; }
+                        </style>
+                    </head>
+                    <body>
+                        ${cvContent}
+                    </body>
+                </html>
+            `);
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>

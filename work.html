@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #575757;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .form-section {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <h1>Work Experience</h1>
+    </section>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="personal-info.html">About Me</a>
+        <a href="education.html">Education</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+    </nav>
+
+    <section class="form-section">
+        <h2>Enter Your Work Experience</h2>
+        <input type="text" id="jobTitle" placeholder="Job Title">
+        <input type="text" id="company" placeholder="Company Name">
+        <input type="text" id="duration" placeholder="Duration (e.g. 2019-2021)">
+        <button onclick="saveWorkExperience()">Save Work Experience</button>
+    </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Information about the CV creator tool.</p>
+    </section>
+
+    <script>
+        function saveWorkExperience() {
+            const jobTitle = document.getElementById('jobTitle').value;
+            const company = document.getElementById('company').value;
+            const duration = document.getElementById('duration').value;
+
+            localStorage.setItem("jobTitle", jobTitle);
+            localStorage.setItem("company", company);
+            localStorage.setItem("duration", duration);
+
+            alert("Work experience saved successfully!");
+        }
+    </script>
+</body>
+</html>
